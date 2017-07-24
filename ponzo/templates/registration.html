@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "用户注册" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "用户注册" %}</h1>
+
+  <form action="{{ post_url }}" method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="{% trans '提交' %}" style="margin-left: 300px;
+    width: 54px;
+    height: 34px;
+    border-top-width: 2px;
+    margin-top: 200px;
+    font-size: 18px;" />
+  </form>
+
+{% endblock %}

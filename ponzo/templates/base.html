@@ -1,0 +1,22 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Title{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+	{% block style %}{% endblock %}
+	{% block script %}{% endblock %}
+  </head>
+  <body>
+	{% block navigation %}
+	{% get_current_language as LANGUAGE_CODE %}
+	{{ LANGUAGE_CODE }}
+	{% endblock %}
+	{% block content %}
+    <!-- page content -->
+	<p>This is the default content.</p>
+	{% endblock %}
+  </body>
+</html>

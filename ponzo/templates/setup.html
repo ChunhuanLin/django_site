@@ -1,0 +1,38 @@
+from ponzo.models import Ponzo
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "设置眼睛位置" %}{% endblock %}
+{% block content %}
+    <h1>{% trans "设置眼睛位置" %}</h1>
+
+	<div class ="eye_position">
+      <img src="/static/eye-position.svg" alt="眼睛位置" />
+	  <div class="textbox">
+		{% blocktrans %}
+		使您的视线保持水平，即与显示器垂直，并将眼睛正对图中的蓝色标记，接下来的测试过程中请保持动作不变，直至完成测试！<br><br>
+		{% endblocktrans %}
+		<center><b>{% trans "谢谢您的合作！" %}</b></center>
+	  </div>
+	</div>
+
+	<form action="{{ post_url }}" method="post">
+      {% csrf_token %}
+      <center>
+		<input type="submit" value={% trans "开始测试！" %}
+			   style="margin-left:-75px;font-size: 18px;"/>
+	  </center>
+	</form>
+	
+	<style media="screen" type="text/css">
+	  .eye_position { position: relative; width: 100%; }
+	  .textbox {
+	    position: absolute;
+	    top: 400px;
+	    width: 520px;
+        display: block;
+	    margin-left: 90px;
+        margin-right: 90px;
+	  }
+	</style>
+
+{% endblock %}
